@@ -1,0 +1,44 @@
+# Node dependencies
+/node_modules
+
+# Next.js build output
+/.next
+/out
+/.vercel
+/.vercel_build_output
+
+# Local environment files
+.env
+.env.*.local
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.log
+
+# Testing output
+/coverage
+/.nyc_output
+
+# TypeScript
+*.tsbuildinfo
+
+# Editor directories and files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# Misc
+.cache
