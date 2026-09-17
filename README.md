@@ -4,11 +4,11 @@
   <strong>Understand. Track. Reduce. 🌍</strong>
 </p>
 
-<p align="center">
+<p align="start">
   A privacy-first carbon footprint platform that turns a short lifestyle questionnaire into personalized emissions insights, actionable recommendations, and measurable reduction goals.
 </p>
 
-<p align="center">
+<p align="start">
   <a href="https://ecotrack-murex-gamma.vercel.app/">
     🚀 <strong>Live Demo</strong>
   </a>
