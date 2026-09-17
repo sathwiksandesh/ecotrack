@@ -1,15 +1,6 @@
 # 🌿 EcoTrack AI — Carbon Footprint Awareness Platform
 
 <p align="center">
-  <img src="https://img.shields.io/badge/EcoTrack-AI%20Sustainability-2ea44f?style=for-the-badge" alt="EcoTrack AI"/>
-  <img src="https://img.shields.io/badge/Next.js-15-black?style=for-the-badge&logo=next.js" alt="Next.js"/>
-  <img src="https://img.shields.io/badge/TypeScript-Strict-3178C6?style=for-the-badge&logo=typescript" alt="TypeScript"/>
-  <img src="https://img.shields.io/badge/Tailwind%20CSS-3.x-06B6D4?style=for-the-badge&logo=tailwindcss" alt="Tailwind CSS"/>
-  <img src="https://img.shields.io/badge/Zod-Validation-3E67B1?style=for-the-badge" alt="Zod"/>
-  <img src="https://img.shields.io/badge/Vitest-54%20Tests-6E9F18?style=for-the-badge&logo=vitest" alt="Vitest"/>
-</p>
-
-<p align="center">
   <strong>Understand. Track. Reduce. 🌍</strong>
 </p>
 
