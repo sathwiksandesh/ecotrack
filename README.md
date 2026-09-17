@@ -2,7 +2,7 @@
 
 > Understand, track, and reduce your personal carbon footprint — privately, in your browser.
 
-**Live demo:** (https://eco-track-ai-seven.vercel.app/)
+**Live demo:** (https://ecotrack-murex-gamma.vercel.app/)
 
 EcoTrack AI turns a two-minute questionnaire into a personalized climate action plan: your
 estimated annual CO₂e, a category breakdown, how you compare to regional averages and a
