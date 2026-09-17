@@ -88,6 +88,16 @@ export const historyEntrySchema = z.object({
   date: z.string().min(1),
   totalKg: z.number().finite(),
   totalTonnes: z.number().finite(),
+  /** Category snapshots were added after initial release; old entries remain valid. */
+  categories: z
+    .object({
+      transport: z.number().finite(),
+      food: z.number().finite(),
+      electricity: z.number().finite(),
+      shopping: z.number().finite(),
+      waste: z.number().finite(),
+    })
+    .optional(),
 });
 export type HistoryEntry = z.infer<typeof historyEntrySchema>;
 

@@ -15,3 +15,6 @@ export * from './tips-engine';
 export * from './storage';
 export * from './format';
 export * from './math';
+export * from './ecobuddy';
+export * from './forecast';
+export * from './impact-translator';

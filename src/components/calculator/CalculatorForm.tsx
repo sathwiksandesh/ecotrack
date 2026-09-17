@@ -36,17 +36,18 @@ const LAST_STEP = STEP_LABELS.length - 1;
  * table instead of a switch removes the need for exhaustiveness tracking and
  * makes adding or reordering steps a single-site change.
  */
-const STEP_VALIDATORS: ReadonlyArray<
-  | { schema: z.ZodTypeAny; getValue: (input: FootprintInput) => unknown }
-  | null // null = review step, no per-step validation needed
-> = [
-  { schema: footprintInputSchema.shape.region, getValue: (i) => i.region },
-  { schema: transportInputSchema, getValue: (i) => i.transport },
-  { schema: homeInputSchema, getValue: (i) => i.home },
-  { schema: foodInputSchema, getValue: (i) => i.food },
-  { schema: consumptionInputSchema, getValue: (i) => i.consumption },
-  null, // review
-];
+const STEP_VALIDATORS: ReadonlyArray<{
+  schema: z.ZodTypeAny;
+  getValue: (input: FootprintInput) => unknown;
+} | null> = // null = review step, no per-step validation needed
+  [
+    { schema: footprintInputSchema.shape.region, getValue: (i) => i.region },
+    { schema: transportInputSchema, getValue: (i) => i.transport },
+    { schema: homeInputSchema, getValue: (i) => i.home },
+    { schema: foodInputSchema, getValue: (i) => i.food },
+    { schema: consumptionInputSchema, getValue: (i) => i.consumption },
+    null, // review
+  ];
 
 /**
  * Multi-step questionnaire. Holds the full `FootprintInput` in local state,
@@ -126,6 +127,17 @@ export function CalculatorForm() {
       date: new Date().toISOString(),
       totalKg: footprint.totalKg,
       totalTonnes: footprint.totalTonnes,
+      categories: {
+        transport: footprint.categories.transport,
+        food: footprint.categories.food,
+        electricity: footprint.details.electricity,
+        shopping: footprint.categories.consumption,
+        // The food-waste share represented by the selected waste multiplier.
+        waste:
+          footprint.categories.food -
+          footprint.categories.food /
+            (valid.food.foodWaste === 'high' ? 1.25 : valid.food.foodWaste === 'medium' ? 1.1 : 1),
+      },
     });
     router.push('/dashboard');
   }
@@ -189,9 +201,7 @@ export function CalculatorForm() {
               <ConsumptionStep
                 value={input.consumption}
                 errors={errors}
-                onChange={(patch) =>
-                  update({ consumption: { ...input.consumption, ...patch } })
-                }
+                onChange={(patch) => update({ consumption: { ...input.consumption, ...patch } })}
               />
             )}
             {step === LAST_STEP && <ReviewStep input={input} />}

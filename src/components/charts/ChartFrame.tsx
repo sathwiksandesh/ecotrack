@@ -41,4 +41,4 @@ export function ChartFrame({ title, summary, children, table }: ChartFrameProps)
 
 /** Shared table styling helpers so each chart's fallback looks consistent. */
 export const thClass = 'border-b border-primary/15 px-3 py-2 text-left font-semibold text-ink';
-export const tdClass = 'border-b border-primary/10 px-3 py-2 text-ink/80';
+export const tdClass = 'border-b border-primary/10 px-3 py-2 text-left text-ink/80';

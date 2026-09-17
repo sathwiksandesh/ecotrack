@@ -71,7 +71,7 @@ export default function HomePage() {
           <div className="animate-float absolute bottom-0 left-1/3 h-48 w-48 rounded-full bg-primary-light/8 blur-2xl" />
         </div>
 
-        <div className="relative mx-auto max-w-6xl px-4 py-24 sm:px-6 sm:py-32">
+        <div className="relative mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16">
           <div className="mx-auto max-w-3xl text-center">
 
             {/* Eyebrow */}

@@ -18,6 +18,12 @@ import { StatCard } from './StatCard';
 import { ComparisonCard } from './ComparisonCard';
 import { TipCard } from './TipCard';
 import { GoalTracker } from './GoalTracker';
+import { EcoBuddyPanel } from './EcoBuddyPanel';
+import { ForecastCard } from './ForecastCard';
+import { ImpactTranslator } from './ImpactTranslator';
+import { EnergyCard } from './EnergyCard';
+import { GreenPlan } from './GreenPlan';
+import { CalculationExplainability } from './CalculationExplainability';
 
 export interface DashboardViewProps {
   input: FootprintInput;
@@ -36,22 +42,20 @@ export function DashboardView({ input, history }: DashboardViewProps) {
   const tips = generateTips(input, result, { limit: 6 });
 
   const targetHeadline =
-    target.ratio <= 1
-      ? 'Within the target'
-      : `${formatNumber(target.ratio, 2)}× the target`;
+    target.ratio <= 1 ? 'Within the target' : `${formatNumber(target.ratio, 2)}× the target`;
   const averageHeadline = `${formatPercent(average.percentOfAverage)} of average`;
 
   return (
     <div className="flex flex-col gap-12">
-
       {/* ── Overview ──────────────────────────────────────────────────── */}
       <section aria-labelledby="overview-heading">
-        <h2 id="overview-heading" className="sr-only">Footprint overview</h2>
+        <h2 id="overview-heading" className="sr-only">
+          Footprint overview
+        </h2>
         <div className="grid gap-4 lg:grid-cols-3">
           <StatCard label="Annual footprint" value={formatCo2(result.totalKg)} icon="leaf">
             <p className="text-sm leading-relaxed text-ink/60">
-              Across transport, home energy, food, and shopping in{' '}
-              {REGION_LABELS[input.region]}.
+              Across transport, home energy, food, and shopping in {REGION_LABELS[input.region]}.
             </p>
           </StatCard>
           <ComparisonCard
@@ -68,6 +72,14 @@ export function DashboardView({ input, history }: DashboardViewProps) {
           />
         </div>
       </section>
+
+      <ImpactTranslator kgCo2e={result.totalKg} />
+
+      <EnergyCard input={input} />
+
+      <GreenPlan input={input} />
+
+      <CalculationExplainability input={input} />
 
       {/* ── Breakdown ─────────────────────────────────────────────────── */}
       <section aria-labelledby="breakdown-heading" className="flex flex-col gap-5">
@@ -93,10 +105,15 @@ export function DashboardView({ input, history }: DashboardViewProps) {
         </div>
       </section>
 
+      <EcoBuddyPanel input={input} history={history} />
+      <ForecastCard input={input} history={history} />
+
       {/* ── Goal ──────────────────────────────────────────────────────── */}
       <section aria-labelledby="goal-heading" className="flex flex-col gap-5">
         <header>
-          <p className="text-xs font-semibold uppercase tracking-widest text-primary">Goal setting</p>
+          <p className="text-xs font-semibold uppercase tracking-widest text-primary">
+            Goal setting
+          </p>
           <h2 id="goal-heading" className="mt-1 font-display text-2xl font-bold text-ink">
             Track a reduction goal
           </h2>
@@ -107,7 +124,9 @@ export function DashboardView({ input, history }: DashboardViewProps) {
       {/* ── Tips ──────────────────────────────────────────────────────── */}
       <section aria-labelledby="tips-heading" className="flex flex-col gap-5">
         <header>
-          <p className="text-xs font-semibold uppercase tracking-widest text-primary">Action plan</p>
+          <p className="text-xs font-semibold uppercase tracking-widest text-primary">
+            Action plan
+          </p>
           <h2 id="tips-heading" className="mt-1 font-display text-2xl font-bold text-ink">
             Your highest-impact actions
           </h2>
@@ -156,7 +175,6 @@ export function DashboardView({ input, history }: DashboardViewProps) {
           Update my answers
         </ButtonLink>
       </div>
-
     </div>
   );
 }

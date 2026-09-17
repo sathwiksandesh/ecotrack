@@ -35,6 +35,18 @@ export function SiteHeader() {
             Dashboard
           </Link>
           <Link
+            href="/what-if"
+            className="hidden rounded-xl px-3.5 py-2 text-sm font-medium text-ink/70 transition-colors duration-150 hover:bg-primary/10 hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary md:block"
+          >
+            What If?
+          </Link>
+          <Link
+            href="/food-tracker"
+            className="hidden rounded-xl px-3.5 py-2 text-sm font-medium text-ink/70 transition-colors duration-150 hover:bg-primary/10 hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary lg:block"
+          >
+            Food tracker
+          </Link>
+          <Link
             href="/calculator"
             className="ml-1 flex items-center gap-1.5 rounded-xl bg-primary px-4 py-2 text-sm font-semibold text-white shadow-glow-sm transition-all duration-200 hover:bg-primary-dark hover:shadow-glow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
             aria-label="Start the carbon footprint calculator"
