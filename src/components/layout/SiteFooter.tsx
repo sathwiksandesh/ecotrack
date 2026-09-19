@@ -45,7 +45,7 @@ export function SiteFooter() {
         {/* Bottom strip */}
         <div className="mt-10 flex flex-col gap-2 border-t border-primary/8 pt-6 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-xs text-ink/40">
-            © {new Date().getFullYear()} EcoTrack AI · Made ❤️ by Siddhantam Sathwik Sandesh 
+            © {new Date().getFullYear()} EcoTrack AI · Made with ❤️ by Siddhantam Sathwik Sandesh 
           </p>
           <div className="flex items-center gap-1.5 text-xs text-ink/40">
             <span className="h-1.5 w-1.5 rounded-full bg-primary" aria-hidden="true" />
